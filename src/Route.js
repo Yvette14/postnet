@@ -22,7 +22,7 @@ class Route {
             result += response._text;
         } else if (this.mapping["*"]) {
             response = this.mapping["*"].execute(input);
-            result += response._text
+            result += response._text;
         } else {
             return "No such command\nPlease give the right input";
         }
@@ -38,6 +38,8 @@ class Route {
 
         if (response._reset) {
             this.reset();
+            result += "\n\n";
+            result += this.mapping["main"].execute()._text;
         }
 
         if (response._newMapping) {

@@ -5,6 +5,7 @@ let TranslateZipcodeToBarcode = require('../src/TranslateZipcodeToBarcode');
 
 let GotoBarcodeToZipcode = require('../src/GotoBarcodeToZipcode');
 let TranslateBarcodeToZipcode = require('../src/TranslateBarcodeToZipcode');
+let ExitCommand = require('../src/ExitCommand');
 
 let CommandResponse = require('../src/CommandResponse');
 
@@ -76,5 +77,11 @@ Please input your choices(1~3)`;
         let expected = new CommandResponse(text, next, false, false);
 
         expect(ouput).toEqual(expected);
+    })
+
+    it('exit command', ()=> {
+        let text = "Thank U!Good Bye!";
+        let expected = new CommandResponse(text, false, false, false);
+        expect(new ExitCommand().execute()).toEqual(expected);
     })
 })

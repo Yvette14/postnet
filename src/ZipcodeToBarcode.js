@@ -28,7 +28,8 @@ class ZipcodeToBarcode {
         let len = zipcodes.length;
         switch (len) {
             case 5:
-                let a = zipcodesArray.filter((zipcode) => typeof (zipcode - 0) === 'number');
+                let a = zipcodesArray.filter((zipcode) => isNaN(zipcode - 0) === false);
+
                 if (a.length === zipcodesArray.length) {
                     return rightZipcodes;
                 }
@@ -36,7 +37,7 @@ class ZipcodeToBarcode {
                 break;
 
             case 9:
-                let c = zipcodesArray.filter((zipcode) => typeof (zipcode - 0) === 'number');
+                let c = zipcodesArray.filter((zipcode) => isNaN(zipcode - 0) === false);
                 if (c.length === zipcodesArray.length) {
                     return rightZipcodes;
                 }

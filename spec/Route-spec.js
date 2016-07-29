@@ -23,6 +23,11 @@ Please input your choices(1~3)`
         route.execute("1");
         let output = route.execute("23333");
         let expected = `transformResult is |::|:|::||:::||:::||:::||::||::|`;
+        expected += `\n\n`
+        expected += `1. Translate zip code to bar code
+2. Translate bar code to zip code
+3. Quit
+Please input your choices(1~3)`;
         expect(output).toEqual(expected);
     })
 
@@ -45,6 +50,11 @@ Please input your choices(1~3)`
         route.execute("2");
         let output = route.execute(`|::|:|::||:::||:::||:::||::||::|`);
         let expected = `transformResult is 23333`;
+        expected += `\n\n`
+        expected += `1. Translate zip code to bar code
+2. Translate bar code to zip code
+3. Quit
+Please input your choices(1~3)`;
         expect(output).toEqual(expected);
     })
 

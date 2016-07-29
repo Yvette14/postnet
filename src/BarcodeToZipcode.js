@@ -13,7 +13,7 @@ class BarcodeToZipcode {
         let allTransforms = allcode();
         let zipcodeString = this.zipcodeTransform(barcodesArray, allTransforms);
         let {text, type} = this.checkoutCheckcode(zipcodeString);
-        return new TranslatorResponse(text,type);
+        return new TranslatorResponse(text, type);
     }
 
     validBarcodeFormat(barcodes) {
@@ -68,14 +68,18 @@ class BarcodeToZipcode {
                 if (hasbarcode !== undefined) {
                     return hasbarcode.zipcode;
                 }
-            })
-            return {
-                zipcodes: a,
-                type: type
-            };
+            }).filter((num)=>num !== undefined);
+            // let b = a.filter((num)=> num!==undefined);
+            if (a.length === barcodes.length) {
+                return {
+                    zipcodes: a,
+                    type: type
+                };
+            }
+
         }
         return {
-            barcodes,
+            zipcodes: barcodes,
             type
         };
     }
@@ -96,7 +100,7 @@ class BarcodeToZipcode {
         }
         return {
             text: zipcodes,
-            type
+            type: false
         };
     }
 
