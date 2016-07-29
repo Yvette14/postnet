@@ -1,11 +1,9 @@
+let CommandResponse = require('../src/CommandResponse');
+
 class ExitCommand {
     execute() {
-        return {
-            text: "Thank U!Good Bye!",
-            next: false,
-            reset: false,
-            newMapping: false
-        }
+        let text = "Thank U!Good Bye!";
+        return new CommandResponse(text, false, false, false);
     }
 }
 

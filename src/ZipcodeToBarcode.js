@@ -1,5 +1,6 @@
 let _ = require('lodash');
 let allcode = require('./allcode');
+let TranslatorResponse = require('./TranslatorResponse')
 class ZipcodeToBarcode {
     execute(input) {
         return this.printBarcodes(input);
@@ -10,8 +11,8 @@ class ZipcodeToBarcode {
         let zipcodeWithoutHyphen = this.dropHyphen(zipcodesObj);
         let zipcodeWithCheckcode = this.addCheckcode(zipcodeWithoutHyphen);
         let allTransform = allcode();
-        let barcodeString = this.barcodeTransform(zipcodeWithCheckcode, allTransform);
-        return barcodeString;
+        let {text,type} = this.barcodeTransform(zipcodeWithCheckcode, allTransform);
+        return new TranslatorResponse(text,type);
     }
 
     validZipcodeFormat(zipcodes) {

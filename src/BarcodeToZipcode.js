@@ -1,5 +1,6 @@
 let _ = require('lodash');
 let allcode = require('./allcode');
+let TranslatorResponse = require('./TranslatorResponse');
 class BarcodeToZipcode {
     execute(input) {
         return this.printZipcodes(input)
@@ -12,7 +13,7 @@ class BarcodeToZipcode {
         let allTransforms = allcode();
         let zipcodeString = this.zipcodeTransform(barcodesArray, allTransforms);
         let {text, type} = this.checkoutCheckcode(zipcodeString);
-        return {text, type};
+        return new TranslatorResponse(text,type);
     }
 
     validBarcodeFormat(barcodes) {

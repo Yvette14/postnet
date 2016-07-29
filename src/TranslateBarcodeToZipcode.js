@@ -1,4 +1,5 @@
 let BarcodeToZipcode = require('./BarcodeToZipcode');
+let CommandResponse = require('./CommandResponse');
 
 class TranslateBarcodeToZipcode {
     constructor(next) {
@@ -7,20 +8,12 @@ class TranslateBarcodeToZipcode {
 
     execute(input) {
         let coreResponse = new BarcodeToZipcode().execute(input);
-        if (coreResponse.type) {
-            return {
-                text: "transformResult is " + coreResponse.text,
-                next: false,
-                reset: true,
-                newMapping: false
-            }
+        if (coreResponse._type) {
+            let text = "transformResult is " + coreResponse._text;
+            return new CommandResponse(text, false, true, false);
         } else {
-            return {
-                text: "Please give right input",
-                next: this.next,
-                reset: false,
-                newMapping: false
-            }
+            let text = "Please give right input";
+            return new CommandResponse(text, this.next, false, false);
         }
     }
 }

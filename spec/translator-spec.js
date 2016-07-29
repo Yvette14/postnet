@@ -2,15 +2,14 @@
 let ZipcodeToBarcode = require('../src/ZipcodeToBarcode');
 let BarcodeToZipcode = require('../src/BarcodeToZipcode');
 let allcode = require('../src/allcode');
+let TranslatorResponse = require('../src/TranslatorResponse');
 
 describe('translator', ()=> {
     it('print barcode', ()=> {
         let zipcodes = '45056-1234';
         let zipcodeString = new ZipcodeToBarcode().execute(zipcodes);
-        let expected = {
-            text: `|:|::|:|:|:||::::|:|::||:::::||::|:|::||::|::|||:::|`,
-            type: true
-        };
+        let text = `|:|::|:|:|:||::::|:|::||:::::||::|:|::||::|::|||:::|`;
+        let expected = new TranslatorResponse(text,true);
         expect(zipcodeString).toEqual(expected);
     })
 
@@ -18,10 +17,7 @@ describe('translator', ()=> {
         let barcodes = `|:|::|:|:|:||::::|:|::||:::::||::|:|::||::|::|||:::|`;
         let zipcodeString = new BarcodeToZipcode().execute(barcodes);
 
-        let expected = {
-            text: '45056-1234',
-            type: true
-        };
+        let expected = new TranslatorResponse('45056-1234',true);
         expect(zipcodeString).toEqual(expected);
     })
 })

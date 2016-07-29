@@ -19,29 +19,29 @@ class Route {
         let result = "";
         if (command) {
             response = command.execute(input);
-            result += response.text;
+            result += response._text;
         } else if (this.mapping["*"]) {
             response = this.mapping["*"].execute(input);
-            result += response.text
+            result += response._text
         } else {
             return "No such command\nPlease give the right input";
         }
 
-        if (response.next) {
+        if (response._next) {
             let newResponse;
             do {
-                newResponse = response.next.execute();
+                newResponse = response._next.execute();
                 result += "\n";
-                result += newResponse.text;
+                result += newResponse._text;
             } while (newResponse.next);
         }
 
-        if (response.reset) {
+        if (response._reset) {
             this.reset();
         }
 
-        if (response.newMapping) {
-            this.mapping = response.newMapping;
+        if (response._newMapping) {
+            this.mapping = response._newMapping;
         }
         return result;
 

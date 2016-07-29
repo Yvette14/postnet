@@ -1,16 +1,13 @@
 let TranslateZipcodeToBarcode = require('./TranslateZipcodeToBarcode')
-
+let CommandResponse = require('./CommandResponse');
 class GotoZipcodeToBarcode {
     execute() {
-        let self = this;
-        return {
-            text: `Please input zip code:`,
-            next: false,
-            reset: false,
-            newMapping: {
-                "*": new TranslateZipcodeToBarcode(self)
-            }
-        };
+        let text = `Please input zip code:`;
+        let newMapping = {
+            "*": new TranslateZipcodeToBarcode(this)
+        }
+        return new CommandResponse(text, false, false, newMapping);
+
     }
 }
 
