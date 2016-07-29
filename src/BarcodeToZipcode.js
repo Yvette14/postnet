@@ -69,7 +69,6 @@ class BarcodeToZipcode {
                     return hasbarcode.zipcode;
                 }
             }).filter((num)=>num !== undefined);
-            // let b = a.filter((num)=> num!==undefined);
             if (a.length === barcodes.length) {
                 return {
                     zipcodes: a,
