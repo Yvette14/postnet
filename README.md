@@ -1,3 +1,9 @@
+How to run it
+open the terminal
+```
+node src/main.js
+```
+
 * <https://en.wikipedia.org/wiki/POSTNET>
 * <https://www.cs.drexel.edu/~introcs/Fa12/assignments/HW4/index.html>
 * <http://www.jiskha.com/>
