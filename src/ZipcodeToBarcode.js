@@ -24,7 +24,7 @@ class ZipcodeToBarcode {
         let errorZipcodes = {
             zipcodes,
             type: false
-        }
+        };
         let len = zipcodes.length;
         switch (len) {
             case 5:
@@ -102,7 +102,7 @@ class ZipcodeToBarcode {
             let a = zipcodes.map((singleCode) => {
                 let hasCode = allTransforms.find(({zipcode, barcode}) => zipcode === singleCode);
                 return hasCode.barcode;
-            })
+            });
 
             a.push('|');
             a.unshift('|');
