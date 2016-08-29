@@ -1,28 +1,25 @@
 {
-  "name": "take-out-food",
+  "name": "postnet",
   "version": "1.0.0",
-  "description": "## 考试目标",
+  "description": "* <https://en.wikipedia.org/wiki/POSTNET> * <https://www.cs.drexel.edu/~introcs/Fa12/assignments/HW4/index.html> * <http://www.jiskha.com/>",
   "main": "index.js",
   "scripts": {
-    "test": "node run-test.js && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/freewind/take-out-food.git"
+    "url": "git+https://github.com/Yvette14/postnet.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/freewind/take-out-food/issues"
+    "url": "https://github.com/Yvette14/postnet/issues"
   },
-  "homepage": "https://github.com/freewind/take-out-food#readme",
-  "devDependencies": {
-    "jasmine": "^2.4.1",
-    "jasmine-console-reporter": "^1.2.6"
-  },
+  "homepage": "https://github.com/Yvette14/postnet#readme",
   "dependencies": {
-    "lodash": "^4.14.0",
+    "jasmine": "^2.4.1",
+    "lodash": "^4.15.0",
     "readline-sync": "^1.4.4"
   }
 }
